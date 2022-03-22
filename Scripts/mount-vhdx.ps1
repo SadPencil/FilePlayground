@@ -12,6 +12,6 @@ $ErrorActionPreference = "Stop"
 
 
 New-Item $mountPath -ItemType Directory -ErrorAction SilentlyContinue
-$vhd = Mount-VHD -NoDriveLetter -Path $vhdChildPath -PassThru
+$vhd = Mount-VHD -NoDriveLetter -Path $vhdxPath -PassThru
 $part = $vhd | Get-Disk | Get-Partition | Where-Object { ($_ | Get-Volume) -ne $Null } 
 $part | Add-PartitionAccessPath -AccessPath $mountPath
